@@ -108,15 +108,5 @@ Add a new column named **`Equality Class`** and apply the following classificati
 
 ![Process Log 2 – Equality Class Formula](assets/images/excel_formula.png)
 
----
 
-## 📁 File Structure
-
-```
-📦 daikibo-analysis/
- ┣ 📄 README.md
- ┣ 📊 daikibo-telemetry-data.json
- ┣ 📊 daikibo-telemetry.twbx         ← Tableau workbook
- ┗ 📑 daikibo-equality.xlsx          ← Excel workbook with Equality Class column
-```
 
