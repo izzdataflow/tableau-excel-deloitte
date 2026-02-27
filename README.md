@@ -22,7 +22,7 @@ Daikibo's tech team unified telemetry data from **4 factories** into a single JS
 
 Download `daikibo-telemetry-data.json.zip`, unzip it, and import the JSON file into Tableau as a data source.
 
-![Step 1 – Import JSON into Tableau](https://i.imgur.com/placeholder_step1.png)
+![Step 1 – Import JSON into Tableau](assets/images/1.load_data_tablaeu.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create a new **calculated measure field** named `Unhealthy`. Assign a value of `
 IF [Status] = "unhealthy" THEN 10 ELSE 0 END
 ```
 
-![Step 2 – Unhealthy Calculated Field](https://i.imgur.com/placeholder_step2.png)
+![Step 2 – Unhealthy Calculated Field](assets/images/2.create_measure.png)
 
 ---
 
@@ -42,7 +42,7 @@ IF [Status] = "unhealthy" THEN 10 ELSE 0 END
 
 Using the `Unhealthy` measure, create a **bar chart** on a new sheet titled **"Down Time per Factory"**, with factory name on the X-axis and total unhealthy minutes on the Y-axis.
 
-![Step 3 – Down Time per Factory](https://i.imgur.com/placeholder_step3.png)
+![Step 3 – Down Time per Factory](assets/images/3.create_chart.png)
 
 ---
 
@@ -50,7 +50,7 @@ Using the `Unhealthy` measure, create a **bar chart** on a new sheet titled **"D
 
 On a **new sheet**, create a second bar chart titled **"Down Time per Device Type"**, showing total downtime broken down by machine/device type.
 
-![Step 4 – Down Time per Device Type](https://i.imgur.com/placeholder_step4.png)
+![Step 4 – Down Time per Device Type](assets/images/4.create_chart2.png)
 
 ---
 
@@ -58,7 +58,7 @@ On a **new sheet**, create a second bar chart titled **"Down Time per Device Typ
 
 Create a **Dashboard** combining both sheets. Configure the **"Down Time per Factory"** chart as a **filter action** — clicking a factory bar dynamically updates the **"Down Time per Device Type"** chart to show only that factory's machine breakdown.
 
-![Step 5 – Dashboard with Filter](https://i.imgur.com/placeholder_step5.png)
+![Step 5 – Dashboard with Filter](assets/images/5.create_dashboard.png)
 
 ---
 
@@ -66,7 +66,11 @@ Create a **Dashboard** combining both sheets. Configure the **"Down Time per Fac
 
 Click the bar representing the **factory with the highest total downtime**. The second chart will update automatically. Take a screenshot of the resulting dashboard view.
 
-![Step 6 – Factory with Most Downtime Selected](https://i.imgur.com/placeholder_step6.png)
+![Step 6 – Factory with Most Downtime Selected](assets/images/6.filter_dashboard.png)
+
+---
+### Insight
+-
 
 ---
 
@@ -77,10 +81,6 @@ Following internal complaints about gender pay inequality, Daikibo Industrials c
 ---
 
 ### Process Log 1 — Load File into Excel
-
-Open the provided dataset file in **Microsoft Excel**.
-
-![Process Log 1 – Load File into Excel](https://i.imgur.com/placeholder_processlog1.png)
 
 ---
 
@@ -102,7 +102,7 @@ Add a new column named **`Equality Class`** and apply the following classificati
 | -20 to -10 or 10 to 20 | 🟠 Unfair |
 | < -20 or > 20 | 🔴 Highly Discriminative |
 
-![Process Log 2 – Equality Class Formula](https://i.imgur.com/placeholder_processlog2.png)
+![Process Log 2 – Equality Class Formula](assets/images/excel_formula.png)
 
 ---
 
