@@ -70,7 +70,9 @@ Click the bar representing the **factory with the highest total downtime**. The 
 
 ---
 ### Insight
--
+-Daikibo factory at Seiko have the highest downtime cause by Laser Welder device
+-Daikibo factory at Shenzen have the second highest downtime cause by Laser Cutter device
+-Daikibo factory at Meiyo have 1/5 downtime from top 2 factory cause by Heavy Duty Drill and Laser Cutter device
 
 ---
 
@@ -116,6 +118,3 @@ Add a new column named **`Equality Class`** and apply the following classificati
  ┗ 📑 daikibo-equality.xlsx          ← Excel workbook with Equality Class column
 ```
 
----
-
-> **Note:** Replace all `https://i.imgur.com/placeholder_*.png` image links with actual screenshots captured during your analysis.
