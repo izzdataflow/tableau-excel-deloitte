@@ -1,1 +1,121 @@
-# tableau-excel-deloitte
+# Daikibo Industrials — Data Analysis Tasks
+
+> **Client:** Daikibo Industrials | **Tools:** Tableau · Microsoft Excel | **Project:** Deloitte Virtual Experience
+
+---
+
+## 📊 Task 1 — Telemetry Data Analysis (Tableau)
+
+Daikibo's tech team unified telemetry data from **4 factories** into a single JSON file covering **May 2021**. Each factory runs **9 machine types**, each sending a status message every **10 minutes**. The goal is to identify where and which machines broke down most.
+
+### Factories
+| Factory | Location |
+|---|---|
+| Daikibo Factory Meiyo | Tokyo, Japan |
+| Daikibo Factory Seiko | Osaka, Japan |
+| Daikibo Berlin | Berlin, Germany |
+| Daikibo Shenzhen | Shenzhen, China |
+
+---
+
+### Step 1 — Import Data into Tableau
+
+Download `daikibo-telemetry-data.json.zip`, unzip it, and import the JSON file into Tableau as a data source.
+
+![Step 1 – Import JSON into Tableau](https://i.imgur.com/placeholder_step1.png)
+
+---
+
+### Step 2 — Create "Unhealthy" Calculated Field
+
+Create a new **calculated measure field** named `Unhealthy`. Assign a value of `10` for every row where the machine status is unhealthy (representing **10 minutes of potential downtime** since the last message).
+
+```
+IF [Status] = "unhealthy" THEN 10 ELSE 0 END
+```
+
+![Step 2 – Unhealthy Calculated Field](https://i.imgur.com/placeholder_step2.png)
+
+---
+
+### Step 3 — "Down Time per Factory" Bar Chart
+
+Using the `Unhealthy` measure, create a **bar chart** on a new sheet titled **"Down Time per Factory"**, with factory name on the X-axis and total unhealthy minutes on the Y-axis.
+
+![Step 3 – Down Time per Factory](https://i.imgur.com/placeholder_step3.png)
+
+---
+
+### Step 4 — "Down Time per Device Type" Bar Chart
+
+On a **new sheet**, create a second bar chart titled **"Down Time per Device Type"**, showing total downtime broken down by machine/device type.
+
+![Step 4 – Down Time per Device Type](https://i.imgur.com/placeholder_step4.png)
+
+---
+
+### Step 5 — Dashboard with Cross-Filter
+
+Create a **Dashboard** combining both sheets. Configure the **"Down Time per Factory"** chart as a **filter action** — clicking a factory bar dynamically updates the **"Down Time per Device Type"** chart to show only that factory's machine breakdown.
+
+![Step 5 – Dashboard with Filter](https://i.imgur.com/placeholder_step5.png)
+
+---
+
+### Step 6 — Select Factory with Most Downtime
+
+Click the bar representing the **factory with the highest total downtime**. The second chart will update automatically. Take a screenshot of the resulting dashboard view.
+
+![Step 6 – Factory with Most Downtime Selected](https://i.imgur.com/placeholder_step6.png)
+
+---
+
+## 📋 Task 2 — Gender Pay Equality Analysis (Excel)
+
+Following internal complaints about gender pay inequality, Daikibo Industrials commissioned a forensic algorithm to score gender pay equality across job roles and locations. Your task is to classify those scores.
+
+---
+
+### Process Log 1 — Load File into Excel
+
+Open the provided dataset file in **Microsoft Excel**.
+
+![Process Log 1 – Load File into Excel](https://i.imgur.com/placeholder_processlog1.png)
+
+---
+
+### Process Log 2 — Create "Equality Class" Column
+
+Add a new column named **`Equality Class`** and apply the following classification formula based on the `Equality Score` field:
+
+```excel
+=IF([@[Equality Score]]=0,"Ideal",
+  IF(OR([@[Equality Score]]<-20,[@[Equality Score]]>20),"Highly Discriminative",
+    IF(OR([@[Equality Score]]<-10,[@[Equality Score]]>10),"Unfair",
+      "Fair")))
+```
+
+| Equality Score Range | Classification |
+|---|---|
+| = 0 | ✅ Ideal |
+| -10 to 10 (excl. 0) | 🟡 Fair |
+| -20 to -10 or 10 to 20 | 🟠 Unfair |
+| < -20 or > 20 | 🔴 Highly Discriminative |
+
+![Process Log 2 – Equality Class Formula](https://i.imgur.com/placeholder_processlog2.png)
+
+---
+
+## 📁 File Structure
+
+```
+📦 daikibo-analysis/
+ ┣ 📄 README.md
+ ┣ 📊 daikibo-telemetry-data.json
+ ┣ 📊 daikibo-telemetry.twbx         ← Tableau workbook
+ ┗ 📑 daikibo-equality.xlsx          ← Excel workbook with Equality Class column
+```
+
+---
+
+> **Note:** Replace all `https://i.imgur.com/placeholder_*.png` image links with actual screenshots captured during your analysis.
